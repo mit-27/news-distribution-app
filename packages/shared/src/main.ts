@@ -1,7 +1,7 @@
 // contract.ts
 
 import { initContract } from '@ts-rest/core';
-import { postContract } from './routers/posts';
+import { newsContract } from './routers/news';
 import { userContract } from './routers/users';
 import { z } from 'zod';
 
@@ -9,7 +9,7 @@ const c = initContract();
 
 export const contract = c.router(
     {
-        posts: postContract,
+        news: newsContract,
         users: userContract,
     },
     { pathPrefix: '/api', strictStatusCodes: true }

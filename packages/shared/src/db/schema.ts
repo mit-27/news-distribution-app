@@ -1,11 +1,12 @@
 import { pgTable, serial, text, uuid, varchar, boolean, timestamp } from "drizzle-orm/pg-core";
 
-export const post = pgTable("posts", {
-    id: uuid("id").primaryKey().defaultRandom(),
+export const news = pgTable("news", {
+    id: varchar("id").primaryKey(),
+    sourceName: varchar("source_name"),
     title: varchar("title").notNull(),
-    createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
-    body: text("body").notNull(),
-});
+    description: varchar("description"),
+    imageUrl: varchar("image_url"),
+})
 
 export const user = pgTable("users", {
     id: varchar("id").primaryKey(),
